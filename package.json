@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "firebase": "^8.9.1",
+    "fsevents": "^2.3.2",
     "notyf": "^3.10.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.4",
