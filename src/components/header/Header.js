@@ -27,7 +27,10 @@ export default function Header(props) {
             <div className="col">
               <p class="font-italic">
                 by
-                <a href="https://www.linkedin.com/" class="text-white">
+                <a
+                  href="https://www.linkedin.com/in/gera-davidov/"
+                  class="text-white"
+                >
                   <u> German Davidov</u>
                 </a>
               </p>

@@ -14,6 +14,7 @@ import {
 import Artist from "./components/artist/Artist";
 import Nav from "./components/nav/Nav";
 import Footer from "./components/footer/Footer";
+import Favorites from "./components/favorites/Favorites";
 
 export default () => {
   const [artists, setArtists] = useState([]);
@@ -69,6 +70,9 @@ export default () => {
           </Route>
           <Route exact path="/artist">
             <Artist />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites />
           </Route>
         </Switch>
       </Router>

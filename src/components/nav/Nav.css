@@ -116,7 +116,7 @@ ul.social-network {
   transition: 0.3s ease-out;
   color: #fff;
 }
-.waves-effect :hover {
+.social-network :hover {
   color: gray;
 }
 a {

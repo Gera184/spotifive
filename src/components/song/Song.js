@@ -8,14 +8,28 @@ import Loading from "../loading/Loading";
 export default function Song() {
   toast.configure();
   const [profile, setProfile] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [favoritesBtn, setFavoritesBtn] = useState(false);
+
   const song = useLocation();
-  console.log(profile);
+
   const notifyLoading = () => {
     toast.warning("One second please", {
       position: toast.POSITION.TOP_LEFT,
     });
   };
+  const notifyAddedToFavorites = () => {
+    toast.success("song seccessfully been added", {
+      position: toast.POSITION.TOP_LEFT,
+    });
+  };
+  const notifyExits = () => {
+    toast.error("song has already been added to playlist", {
+      position: toast.POSITION.TOP_LEFT,
+    });
+  };
+
   useEffect(() => {
     if (!loading) {
       notifyLoading();
@@ -72,6 +86,34 @@ export default function Song() {
     }
   }
 
+  useEffect(() => {
+    const dataGetItem = JSON.parse(localStorage.getItem("favorites"));
+    if (dataGetItem) {
+      setFavorites(dataGetItem);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (favoritesBtn) {
+      const dataGetItem = JSON.parse(localStorage.getItem("favorites"));
+      if (dataGetItem) {
+        const exist = dataGetItem.find((x) => x.id === profile.id);
+        if (exist) {
+          notifyExits();
+          setFavoritesBtn(false);
+        } else {
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+          notifyAddedToFavorites();
+          setFavoritesBtn(false);
+        }
+      } else {
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        notifyAddedToFavorites();
+        setFavoritesBtn(false);
+      }
+    }
+  }, [favoritesBtn]);
+
   return (
     <>
       {loading ? (
@@ -84,6 +126,7 @@ export default function Song() {
                   src={profile?.song_art_image_url}
                   style={{ height: "300px", width: "300px" }}
                 />
+
                 <div class="artist-box-content">
                   <h3 class="title">{profile?.full_title}</h3>
                 </div>
@@ -109,6 +152,20 @@ export default function Song() {
               <div className="col">
                 <strong>Release date</strong>
                 <p>{profile?.release_date_for_display}</p>
+              </div>
+            </div>
+            <div className="row ">
+              <div className="col pb-1">
+                <a
+                  onClick={() => {
+                    setFavorites((favorites) => [...favorites, profile]);
+                    setFavoritesBtn(true);
+                  }}
+                  style={{ color: "whitesmoke" }}
+                  className="btn btn-md red"
+                >
+                  add to playlist
+                </a>
               </div>
             </div>
             <div className="row ">

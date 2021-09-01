@@ -10,7 +10,6 @@ export default function Main(props) {
   const [search, setSearch] = useState("");
   const { artists, query } = props;
 
-  console.log(artists);
   const notifyWlecome = () => {
     toast.success(
       "Welcome to spotifive!, Search for specific artist visit our popular searches or just listen to our playlist.",
@@ -92,7 +91,7 @@ export default function Main(props) {
                 <div class="col-md-3 d-flex justify-content-center  ">
                   <Link
                     to={{
-                      pathname: "/artist",
+                      pathname:"/artist",
                       state: {
                         artist,
                       },
