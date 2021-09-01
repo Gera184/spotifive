@@ -76,7 +76,7 @@ export default () => {
           </Route>
         </Switch>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
