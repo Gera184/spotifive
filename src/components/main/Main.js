@@ -91,7 +91,7 @@ export default function Main(props) {
                 <div class="col-md-3 d-flex justify-content-center  ">
                   <Link
                     to={{
-                      pathname:"/artist",
+                      pathname: "/artist",
                       state: {
                         artist,
                       },

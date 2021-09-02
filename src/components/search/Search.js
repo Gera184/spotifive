@@ -38,7 +38,7 @@ export default function Search(props) {
                 class="three"
               >
                 <a>
-                  <b>SEND</b>
+                  <b>SEARCH</b>
                 </a>
               </button>
             </div>

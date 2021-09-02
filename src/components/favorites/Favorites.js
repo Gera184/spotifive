@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Card } from "../card/Card.js";
 import ReactPlayer from "react-player";
+import { Next } from "react-bootstrap/esm/PageItem";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState(
@@ -60,12 +61,27 @@ export default function Favorites() {
         }
       }
     }
-  }, [loading]);
+  }, [loading, index]);
 
   const deleteAll = () => {
     localStorage.removeItem("favorites");
     history.push("/");
     notifyDelete();
+  };
+
+  const Next = () => {
+    if (index < favorites.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
+  };
+  const Previous = () => {
+    if (index === 0) {
+      setIndex(favorites.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
   };
 
   return (
@@ -118,6 +134,26 @@ export default function Favorites() {
                   className="btn btn-md red"
                 >
                   delete
+                </a>
+                ;
+                <a
+                  onClick={() => {
+                    Previous();
+                  }}
+                  style={{ color: "whitesmoke" }}
+                  className="btn btn-md green"
+                >
+                  Previous
+                </a>
+                ;
+                <a
+                  onClick={() => {
+                    Next();
+                  }}
+                  style={{ color: "whitesmoke" }}
+                  className="btn btn-md blue"
+                >
+                  Next
                 </a>
               </div>
             </div>
