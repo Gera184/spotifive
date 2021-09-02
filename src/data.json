@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "image": "https://wallpaperaccess.com/full/24463.jpg",
+    "name": "Tyga",
+    "artistId": 554
+  },
+  {
+    "id": 1,
+    "image": "https://wallpaperaccess.com/full/42136.jpg",
+    "name": "Chris Brown",
+    "artistId": 438
+  },
+  {
+    "id": 2,
+    "image": "https://i.pinimg.com/originals/44/e0/c1/44e0c12e9f81227e35f21ec0df59989b.jpg",
+    "name": "Ed Sheeran",
+    "artistId": 12418
+  },
+  {
+    "id": 3,
+    "image": "https://wallpaperaccess.com/full/9224.jpg",
+    "name": "Rihanna",
+    "artistId": 89
+  }
+]
